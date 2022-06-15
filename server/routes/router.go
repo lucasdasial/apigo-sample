@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/luccasalves/apigo-sample/server/controllers"
+	"github.com/luccasalves/apigo-sample/controllers"
 )
 
 func ConfigRoutes(router *gin.Engine) *gin.Engine {
@@ -10,8 +10,8 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 	main.GET("/", controllers.Greets)
 
 	user := main.Group("users")
-	user.GET("/", controllers.GetAll)
-	user.GET("/:id", controllers.GetUser)
-	user.POST("/", controllers.CreateUser)
+	user.GET("/", controllers.ShowAll)
+	user.GET("/:id", controllers.Show)
+	user.POST("/", controllers.Create)
 	return router
 }
